@@ -1,12 +1,17 @@
 # Math Quiz by Sabir Mohammedi Taieb
 import random
+import time
 
-time = 0
+#time = 0.0
 score = 0
 correctAns = 0
 userSum = 0
+#start = 0.0
+#finish = 0.0
 print("# Math Quiz by Sabir Mohammedi Taieb \n")
 print("Write -1 to exit.")
+
+start = time.perf_counter()
 while (userSum != -1):
   n1 = random.randint(0, 100)
   n2 = random.randint(0, 100)
@@ -18,10 +23,13 @@ while (userSum != -1):
 
   if (userSum == Sum):
     print("Correct")
-    score += 1
-  if (userSum == -1):
+    correctAns += 1
+  elif (userSum == -1):
     break
   else:
     print("Wrong answer! Try again, the correct answer is: ", Sum)
 
-print("\n your score is: ", correctAns)
+finish = time.perf_counter()
+time = finish - start
+score = correctAns - time
+print(f"\n Your time was: {time:0.2f} sec. Number of correct answers is:", correctAns, ". Your Score is: ",score)
