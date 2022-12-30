@@ -1,4 +1,4 @@
-# Math Quiz by Sabir Mohammedi Taieb
+# Math Quiz CLI by Sabir Mohammedi Taieb
 import random
 import time
 
@@ -32,4 +32,9 @@ while (userSum != -1):
 finish = time.perf_counter()
 time = finish - start
 score = correctAns - time
+if(correctAns==0):
+  score=0
+
 print(f"\n Your time was: {time:0.2f} sec. Number of correct answers is:", correctAns, ". Your Score is: ",score)
+
+input("\n Press any key to exit ...")
