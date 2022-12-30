@@ -32,12 +32,21 @@ while (userSum != -1):
 finish = time.perf_counter()
 time = finish - start
 score = correctAns - time
-#print(f"\n Your time was: {time:0.2f} sec. Number of correct answers is:", correctAns, ". Your Score is: ",score)
-master = tk.Tk()
+if(correctAns==0):
+  score=0
 
+master = tk.Tk()
+master.title("Math Quiz")
 tk.Label(master, text="Enter the sum of ").grid(row=0)
-tk.Label(master, text="Your Answer:").grid(row=1)
+tk.Label(master, text="Your Answer:").grid(row=1,column=0)
+tk.Button(text="Enter").grid(row=1,column=2)
+lscore=tk.Label(master, text="Hello")
+lscore.grid(row=2)
+my_text=f"Your time was: {time:0.2f} sec. Number of correct answers is: {correctAns} . Your Score is: {score}"
+lscore.config(text=my_text)
 eans = tk.Entry(master)
 eans.grid(row=1,column=1)
+
+
 
 master.mainloop()
