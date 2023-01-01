@@ -12,22 +12,22 @@ userSum = 0
 # print("Write -1 to exit.")
 
 start = time.perf_counter()
-while (userSum != -1):
-  n1 = random.randint(0, 100)
-  n2 = random.randint(0, 100)
+# while (userSum != -1):
+n1 = random.randint(0, 100)
+n2 = random.randint(0, 100)
 
-  #print(n1, " + ", n2)
-  userSum = input("Enter the sum of these two numbers: ")
-  userSum = int(userSum)
-  Sum = n1 + n2
+#   #print(n1, " + ", n2)
+#   #userSum = input("Enter the sum of these two numbers: ")
+#   userSum = int(userSum)
+#   Sum = n1 + n2
 
-  if (userSum == Sum):
-    #print("Correct")
-    correctAns += 1
-  elif (userSum == -1):
-    break
-  else:
-    print("Wrong answer! Try again, the correct answer is: ", Sum)
+#   if (userSum == Sum):
+#     #print("Correct")
+#     correctAns += 1
+#   elif (userSum == -1):
+#     break
+#   else:
+#     print("Wrong answer! Try again, the correct answer is: ", Sum)
 
 finish = time.perf_counter()
 time = finish - start
@@ -37,7 +37,7 @@ if(correctAns==0):
 
 master = tk.Tk()
 master.title("Math Quiz")
-tk.Label(master, text="Enter the sum of ").grid(row=0)
+tk.Label(master, text=f"Enter the sum of {n1} and {n2}").grid(row=0)
 tk.Label(master, text="Your Answer:").grid(row=1,column=0)
 tk.Button(text="Enter").grid(row=1,column=2)
 lscore=tk.Label(master, text="Hello")
