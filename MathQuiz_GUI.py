@@ -19,7 +19,7 @@ n2 = random.randint(0, 100)
 #   #print(n1, " + ", n2)
 #   #userSum = input("Enter the sum of these two numbers: ")
 #   userSum = int(userSum)
-#   Sum = n1 + n2
+Sum = n1 + n2
 
 #   if (userSum == Sum):
 #     #print("Correct")
@@ -31,22 +31,35 @@ n2 = random.randint(0, 100)
 
 finish = time.perf_counter()
 time = finish - start
-score = correctAns - time
+score = correctAns - time/60
 if(correctAns==0):
   score=0
 
 master = tk.Tk()
 master.title("Math Quiz")
-tk.Label(master, text=f"Enter the sum of {n1} and {n2}").grid(row=0)
-tk.Label(master, text="Your Answer:").grid(row=1,column=0)
-tk.Button(text="Enter").grid(row=1,column=2)
-lscore=tk.Label(master, text="Hello")
-lscore.grid(row=2)
-my_text=f"Your time was: {time:0.2f} sec. Number of correct answers is: {correctAns} . Your Score is: {score}"
-lscore.config(text=my_text)
 eans = tk.Entry(master)
 eans.grid(row=1,column=1)
+userSum = eans.get()
+tk.Label(master, text=f"Enter the sum of {n1} and {n2}").grid(row=0)
+tk.Label(master, text="Your Answer:").grid(row=1,column=0)
+EnterBtn=tk.Button(text="Enter")
+EnterBtn.grid(row=1,column=2)
+StopBtn = tk.Button(text="Stop")
+StopBtn.grid(row=1, column="3")
+lscore=tk.Label(master, text="Hello")
+lscore.grid(row=3)
+EnterBtn.bind('<Enter>', lambda event: ansFunc())
 
-
+def ansFunc():
+  if(userSum == Sum):
+    lanswer = tk.Label(master, text=f"Correct answer!")
+    lanswer.grid(row=2)
+    correctAns +=1
+  else:
+    lanswer = tk.Label(master, text=f"Wrong, The correct answer is: {Sum}")
+    lanswer.grid(row=2)
+  
+my_text=f"Your time was: {time:0.2f} sec. Number of correct answers is: {correctAns} . Your Score is: {score}"
+lscore.config(text=my_text)
 
 master.mainloop()
